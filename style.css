@@ -1,0 +1,117 @@
+/* Общие стили */
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #fff;
+  position: relative;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Логотип */
+.logo {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  width: 200px;
+  height: auto;
+}
+
+/* Кнопки рядом с логотипом */
+.nav-buttons {
+  position: absolute;
+  top: 60px;
+  left: 350px;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-buttons a {
+  text-decoration: none;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  font-size: 20px;
+}
+
+.nav-buttons a:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
+
+/* Заголовок */
+.text {
+  position: absolute;
+  left: 100px;
+  bottom: 34%;
+  font-size: 120px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+/* Черная полоса */
+.bottom-bar {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  overflow: hidden;
+  box-shadow: 0 12px 15px rgba(0,0,0,0.6); /* Тень снизу */
+}
+
+/* Бегущий текст */
+.marquee {
+  display: flex;
+  gap: 50px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 30px;
+  animation: scrollText 10s linear infinite;
+}
+
+.marquee span {
+  flex-shrink: 0;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Вращающиеся круги */
+.rotating-circles {
+  position: absolute;
+  top: 42%;
+  right: 320px;
+  transform: translateY(-50%);
+  width: 500px;
+  height: auto;
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+/* Артемида */
+.artemis {
+  position: absolute;
+  bottom: 23%;
+  right: 15%;
+  width: 33%;
+  height: auto;
+}
+
+
+
+
+

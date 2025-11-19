@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Женщины в истории</title>
+  <!-- Подключаем шрифт Oswald -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Логотип -->
+  <img src="ЛОГО.png" alt="Логотип" class="logo">
+
+  <!-- Кнопки -->
+  <div class="nav-buttons">
+    <a href="home.html">Главная</a>
+    <a href="about.html">О нас</a>
+    <a href="contact.html">Контакты</a>
+  </div>
+
+  <!-- Текст -->
+  <div class="text">
+    ЖЕНЩИНЫ<br>
+    В ИСТОРИИ
+  </div>
+
+  <!-- Черная полоса с повторяющимся бегущим текстом -->
+  <div class="bottom-bar">
+    <div class="marquee">
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+      <span>WOMEN IN HISTORY &nbsp;</span>
+    </div>
+  </div>
+
+  <!-- Картинка кругов -->
+  <img src="круги.png" alt="Круги" class="rotating-circles">
+
+  <!-- Картинка Артемиды -->
+  <img src="артемида.png" alt="Артемида" class="artemis">
+
+
+ <!doctype html>
+<html lang="ru">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меню категорий женщин</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Oswald', sans-serif;
+      background: white;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .women-menu-hamburger {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: rgba(26, 26, 26, 0.9);
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .women-menu-hamburger:hover {
+      background: rgba(102, 126, 234, 0.9);
+      transform: scale(1.05);
+    }
+
+    .women-menu-hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .women-menu-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .women-menu-hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .women-menu-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .women-menu-list {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 350px;
+      height: 100%;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(10px);
+      display: none;
+      flex-direction: column;
+      padding: 40px 40px 40px 40px;
+      gap: 0;
+      z-index: 250;
+      overflow-y: auto;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .women-menu-list.active {
+      display: flex;
+    }
+
+    .women-menu-list a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 400;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .women-menu-list a:hover {
+      color: #667eea;
+      padding-left: 10px;
+    }
+
+    .women-category-content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      display: none;
+      flex-direction: column;
+      padding: 80px 60px 60px 60px;
+      z-index: 300;
+      overflow-y: auto;
+    }
+
+    .women-category-content.active {
+      display: flex;
+    }
+
+    .women-close-button {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      z-index: 350;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .women-close-button:hover {
+      background: rgba(102, 126, 234, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .women-close-button::before,
+    .women-close-button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      height: 3px;
+      background: rgb(0, 0, 0);
+      border-radius: 2px;
+    }
+
+    .women-close-button::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .women-close-button::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .women-category-title {
+      font-size: 48px;
+      font-weight: 700;
+      color: rgb(0, 0, 0);
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+
+    .women-names-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+    }
+
+    .women-name-card {
+      background: rgb(255, 255, 255);
+      padding: 20px;
+      border-radius: 10px;
+      border-color: #000000;
+      color: rgb(0, 0, 0);
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid black;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    .women-name-card:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: #667eea;
+      transform: translateY(-5px);
+      color: rgb(0, 0, 0);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .women-menu-list {
+        width: 100%;
+      }
+
+      .women-category-content {
+        padding: 80px 30px 60px 30px;
+      }
+
+      .women-names-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .women-category-title {
+        font-size: 36px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Кнопка-гамбургер для открытия меню -->
+  <div class="women-menu-hamburger" onclick="toggleWomenMenu()"><span></span> <span></span> <span></span>
+  </div><!-- Боковое меню с категориями -->
+  <div class="women-menu-list" id="womenMenuList"><a href="#" onclick="showWomenCategory('painting', event)">Живопись</a> <a href="#" onclick="showWomenCategory('music', event)">Музыка</a> <a href="#" onclick="showWomenCategory('math', event)">Математика</a> <a href="#" onclick="showWomenCategory('chemistry', event)">Химия</a> <a href="#" onclick="showWomenCategory('physics', event)">Физика</a> <a href="#" onclick="showWomenCategory('sport', event)">Спорт</a> <a href="#" onclick="showWomenCategory('design', event)">Дизайн</a> <a href="#" onclick="showWomenCategory('architecture', event)">Архитектура</a> <a href="#" onclick="showWomenCategory('cinema', event)">Кино</a> <a href="#" onclick="showWomenCategory('astronomy', event)">Астрономия</a> <a href="#" onclick="showWomenCategory('medicine', event)">Медицина</a> <a href="#" onclick="showWomenCategory('biology', event)">Биология</a> <a href="#" onclick="showWomenCategory('radio', event)">Радиосвязь</a> <a href="#" onclick="showWomenCategory('politics', event)">Политика</a> <a href="#" onclick="showWomenCategory('literature', event)">Литература</a>
+  </div><!-- Полноэкранное окно с карточками имен -->
+  <div class="women-category-content" id="womenCategoryContent">
+   <div class="women-close-button" onclick="closeWomenCategory()"></div>
+   <h2 class="women-category-title" id="womenCategoryTitle"></h2>
+   <div class="women-names-grid" id="womenNamesGrid"></div>
+  </div>
+  <script>
+    // ===== КАК ДОБАВИТЬ НОВЫЕ ИМЕНА =====
+    // 1. Найдите нужную категорию ниже
+    // 2. Добавьте новое имя в массив names, используя запятую
+    // 3. Пишите имя точно так, как оно написано в Википедии
+    // 4. Ссылка на Википедию создастся автоматически
+    // 
+    // Пример: 'Новое Имя' добавится в конец списка
+    // Важно: имя должно точно совпадать с названием статьи в Википедии
+
+    const womenData = {
+      painting: {
+        title: 'Живопись',
+        names: [
+          'Фрида Кало', 'Мэри Кассат', 'Берта Моризо', 'Джорджия О\'Киф',
+          'Артемизия Джентилески', 'Тамара де Лемпицка', 'Элизабет Виже-Лебрен',
+          'Камилла Клодель', 'Хелен Франкенталер', 'Ли Краснер', 'Джоан Митчелл',
+          'Бриджит Райли', 'Яёи Кусама', 'Марина Абрамович', 'Синди Шерман'
+          // Добавляйте новые имена здесь: 'Новое Имя',
+        ]
+      },
+      music: {
+        title: 'Музыка',
+        names: [
+          'Клара Шуман', 'Фанни Мендельсон', 'Эми Бич', 'Нина Симон',
+          'Билли Холидей', 'Элла Фицджеральд', 'Ареtha Франклин', 'Эдит Пиаф',
+          'Мария Каллас', 'Джоан Баэз', 'Джони Митчелл', 'Бьорк',
+          'Лорин Хилл', 'София Губайдулина', 'Галина Уствольская'
+        ]
+      },
+      math: {
+        title: 'Математика',
+        names: [
+          'Софья Ковалевская', 'Эмми Нётер', 'Ада Лавлейс', 'Грейс Хоппер',
+          'Мэриан Мирзахани', 'Карен Уленбек', 'Софи Жермен', 'Мария Аньези',
+          'Джулия Робинсон', 'Ингрид Добеши', 'Фан Чун Грэм', 'Дуза Макдафф'
+        ]
+      },
+      chemistry: {
+        title: 'Химия',
+        names: [
+          'Мария Склодовская-Кюри', 'Дороти Ходжкин', 'Ирен Жолио-Кюри',
+          'Розалинд Франклин', 'Ада Йонат', 'Гертруда Элайон', 'Дженнифер Даудна',
+          'Франсес Арнольд', 'Мария Гёпперт-Майер', 'Стефани Кволек'
+        ]
+      },
+      sport: {
+        title: 'Спорт',
+        names: [
+          'Серена Уильямс', 'Симона Байлз', 'Наталья Ищенко', 'Лариса Латынина',
+          'Надя Команечи', 'Уша Прайор', 'Билли Джин Кинг', 'Мартина Навратилова',
+          'Флоренс Гриффит-Джойнер', 'Джеки Джойнер-Керси', 'Линдси Вонн',
+          'Алина Загитова', 'Ирина Роднина', 'Елена Исинбаева'
+        ]
+      },
+      design: {
+        title: 'Дизайн',
+        names: [
+          'Коко Шанель', 'Рэй Имс', 'Вивьен Вествуд',
+          'Диана фон Фюрстенберг', 'Донна Каран', 'Стелла Маккартни',
+          'Миуччиа Прада', 'Айрис ван Херпен', 'Паула Шер', 'Сьюзан Каре',
+          'Джессика Хиш', 'Дебби Миллман', 'Эйприл Грейман', 'Луиза Фили',
+          'Кэтрин Маккой', 'Зузана Личко', 'Эллен Луптон', 'Ирма Бум'
+        ]
+      },
+      physics: {
+        title: 'Физика',
+        names: [
+          'Мария Склодовская-Кюри', 'Лиза Мейтнер', 'Ву Цзяньсюн',
+          'Мария Гёпперт-Майер', 'Эмми Нётер', 'Розалинд Франклин',
+          'Вера Рубин', 'Джоселин Белл Бернелл', 'Донна Стрикленд',
+          'Андреа Гез', 'Фаустина Пиньятелли', 'Милева Марич',
+          'Ирен Жолио-Кюри', 'Хедвиг Кон', 'Чиен-Шиунг Ву'
+        ]
+      },
+      architecture: {
+        title: 'Архитектура',
+        names: [
+          'Заха Хадид', 'Эйлин Грей', 'Шарлотта Перриан', 'Лина Бо Барди',
+          'Кадзуё Сэдзима', 'Одиль Декк', 'Элизабет Диллер', 'Кармэ Пиньос',
+          'Дениз Скотт Браун', 'Норма Меррик Скларек', 'Беверли Уиллис',
+          'Джулия Морган', 'Марион Махони Гриффин', 'Анна Хайнингер'
+        ]
+      },
+      cinema: {
+        title: 'Кино',
+        names: [
+          'Катрин Бигелоу', 'Агнес Варда', 'Лина Вертмюллер', 'Джейн Кэмпион',
+          'София Коппола', 'Грета Гервиг', 'Ава Дюверней', 'Патти Дженкинс',
+          'Хлоя Чжао', 'Мерил Стрип', 'Кейт Бланшетт', 'Одри Хепберн',
+          'Ингрид Бергман', 'Марлен Дитрих', 'Грета Гарбо'
+        ]
+      },
+      astronomy: {
+        title: 'Астрономия',
+        names: [
+          'Вера Рубин', 'Джоселин Белл Бернелл', 'Кэролайн Гершель',
+          'Анни Джамп Кэннон', 'Генриетта Ливитт', 'Сесилия Пейн-Гапошкин',
+          'Маргарет Бербидж', 'Нэнси Грейс Роман', 'Андреа Гез',
+          'Сара Сигер', 'Джилл Тартер'
+        ]
+      },
+      medicine: {
+        title: 'Медицина',
+        names: [
+          'Флоренс Найтингейл', 'Элизабет Блэкуэлл', 'Вирджиния Апгар',
+          'Гертруда Элайон', 'Розалин Ялоу', 'Барбара Макклинток',
+          'Рита Леви-Монтальчини', 'Франсуаза Барре-Синусси', 'Ту Юю',
+          'Джейн Гудолл', 'Хелен Броди Тауссиг'
+        ]
+      },
+      biology: {
+        title: 'Биология',
+        names: [
+          'Джейн Гудолл', 'Рэйчел Карсон', 'Барбара Макклинток', 'Розалинд Франклин',
+          'Линн Маргулис', 'Кристиана Нюсляйн-Фольхард', 'Элизабет Блэкберн',
+          'Кэрол Грейдер', 'Дайан Фосси', 'Сильвия Эрл', 'Мэй-Бритт Мозер'
+        ]
+      },
+      radio: {
+        title: 'Радиосвязь',
+        names: [
+          'Хеди Ламарр', 'Эдит Кларк', 'Беатрис Хикс', 'Мэри Уилкс',
+          'Грейс Хоппер', 'Маргарет Гамильтон', 'Кэтрин Джонсон',
+          'Дороти Воган', 'Мэри Джексон', 'Энни Исли'
+        ]
+      },
+      politics: {
+        title: 'Политика',
+        names: [
+          'Индира Ганди', 'Маргарет Тэтчер', 'Голда Меир', 'Ангела Меркель',
+          'Элеонора Рузвельт', 'Роза Паркс', 'Малала Юсуфзай', 'Аун Сан Су Чжи',
+          'Беназир Бхутто', 'Жаклин Кеннеди', 'Хиллари Клинтон',
+          'Кондолиза Райс', 'Мадлен Олбрайт', 'Екатерина II'
+        ]
+      },
+      literature: {
+        title: 'Литература',
+        names: [
+          'Джейн Остин', 'Вирджиния Вулф', 'Агата Кристи', 'Сильвия Плат',
+          'Майя Энджелоу', 'Тони Моррисон', 'Маргарет Этвуд', 'Джоан Роулинг',
+          'Анна Ахматова', 'Марина Цветаева', 'Симона де Бовуар', 'Джордж Элиот',
+          'Эмили Дикинсон', 'Габриэла Мистраль', 'Надин Гордимер'
+        ]
+      }
+    };
+
+    function toggleWomenMenu() {
+      const menu = document.getElementById('womenMenuList');
+      const hamburger = document.querySelector('.women-menu-hamburger');
+      menu.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    function showWomenCategory(category, event) {
+      event.preventDefault();
+      const data = womenData[category];
+      const categoryContent = document.getElementById('womenCategoryContent');
+      const categoryTitle = document.getElementById('womenCategoryTitle');
+      const namesGrid = document.getElementById('womenNamesGrid');
+      const hamburger = document.querySelector('.women-menu-hamburger');
+
+      categoryTitle.textContent = data.title;
+      namesGrid.innerHTML = '';
+
+      data.names.forEach(name => {
+        const nameCard = document.createElement('a');
+        nameCard.className = 'women-name-card';
+        nameCard.textContent = name;
+        
+        const wikiName = name.replace(/\s+/g, '_');
+        nameCard.href = `https://ru.wikipedia.org/wiki/${wikiName}`;
+        nameCard.target = '_blank';
+        nameCard.rel = 'noopener noreferrer';
+        
+        namesGrid.appendChild(nameCard);
+      });
+
+      categoryContent.classList.add('active');
+      document.getElementById('womenMenuList').classList.remove('active');
+      hamburger.classList.remove('active');
+    }
+
+    function closeWomenCategory() {
+      document.getElementById('womenCategoryContent').classList.remove('active');
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99ff9b7802476674',t:'MTc2MzM4NjQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
